@@ -110,6 +110,17 @@ Visual Studio Code の「実行とデバッグ」から`STM32Cube: Build & Debug
 ST-Link GDB Server・GDB・SVD は拡張が導入するバンドルから自動で解決されるため、
 CubeCLT のパス設定は不要です（旧版拡張の `STM32VSCodeExtension.cubeCLT.path` は使いません）。
 
+ただしデバイス情報（`deviceName`）の解決に STM32H5 の CMSIS パックが必要です。
+未導入だと起動時に `No matching device: "STM32H533RE"` のようなエラーになるので、初回のみ
+VS Code のターミナル（拡張が `cube` コマンドを PATH に追加済み）で導入してください。
+
+```bash
+cube pack install STMicroelectronics.stm32h5xx_dfp.1.2.0
+```
+
+`.settings/bundles.store.json` はデバッグ拡張が起動時に参照するプロジェクト設定です
+（無いと `Failed to list bundles` で起動できない）。削除しないでください。
+
 ![Visual Studio Code Debug](images/vscode_dbg.png)
 
 デバッグ起動に失敗した場合、ST-Linkのファームウェアアップデートが必要な場合があります。

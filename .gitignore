@@ -6,6 +6,8 @@ nucleo_h563zi/sample1/Core/Src/*
 !nucleo_h563zi/sample1/Core/Src/main.c
 !nucleo_h563zi/sample1/Core/Src/stm32h5xx_it.c
 nucleo_h563zi/sample1/Drivers/
+# STM32Cube for VS Code が生成するバンドルのロック（bundles.store.json はコミットする）
+nucleo_h563zi/sample1/.settings/bundles-lock.store.json
 
 nucleo_h563zi/sample1/.mxproject
 nucleo_h563zi/sample1/CMakePresets.json
@@ -20,6 +22,8 @@ nucleo_h533re/sample1/Core/Src/*
 !nucleo_h533re/sample1/Core/Src/main.c
 !nucleo_h533re/sample1/Core/Src/stm32h5xx_it.c
 nucleo_h533re/sample1/Drivers/
+# STM32Cube for VS Code が生成するバンドルのロック（bundles.store.json はコミットする）
+nucleo_h533re/sample1/.settings/bundles-lock.store.json
 
 nucleo_h533re/sample1/.mxproject
 nucleo_h533re/sample1/CMakePresets.json

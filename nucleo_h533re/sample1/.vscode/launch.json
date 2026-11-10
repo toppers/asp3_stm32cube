@@ -2,6 +2,9 @@
     // STM32Cube for VS Code（stm32-vscode-extension 3.x）のデバッグ構成。
     // ST-Link GDB Server・GDB・SVD は拡張のバンドル（%LOCALAPPDATA%/stm32cube/bundles）
     // から自動解決されるため、CubeCLT のパス設定（旧 STM32VSCodeExtension.cubeCLT.path）は不要。
+    // deviceName は CMSIS パック（STMicroelectronics.stm32h5xx_dfp）のデバイス名で指定する
+    // （CubeIDE 形式の "...Tx" は一致しない）。パックが無いと "No matching device" になるので
+    // 初回のみ導入する（README 参照）。
     "version": "0.2.0",
     "configurations": [
         {
@@ -10,7 +13,8 @@
             "request": "launch",
             "origin": "snippet",
             "cwd": "${workspaceFolder}",
-            "deviceName": "STM32H533RETx",
+            "deviceName": "STM32H533RE",
+            "deviceCore": "Cortex-M33",
             "serverInterface": "SWD",
             // 起動前に CMake Tools でビルド（選択中のプリセット）。tasks.json の "CMake: build"
             // ※ preBuild に ${command:cmake.build} は使えない（戻り値が文字列でないため展開エラー）
