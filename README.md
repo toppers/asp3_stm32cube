@@ -102,8 +102,13 @@ STM32_Programmer_CLI -c port=SWD reset=HWrst -w build/Debug/H563ZI.elf -v -rst
 
 ### Visual Studio Code でのデバッグ
 
-'STM32 VS Code Extension'の'Create empty project'で作成した際の設定ファイルが`nucleo_h563zi/sample1/.vscode`にあります。
-Visual Studio Code の「実行とデバッグ」から`Build & Debug Microcontroller - ST-Link`を選んで「デバッグの開始」ボタンを押してください。
+STM32Cube for VS Code（`stmicroelectronics.stm32-vscode-extension` 3.x）用のデバッグ構成が
+`nucleo_h563zi/sample1/.vscode`・`nucleo_h533re/sample1/.vscode` にあります。
+Visual Studio Code の「実行とデバッグ」から`STM32Cube: Build & Debug (ST-Link)`を選んで「デバッグの開始」ボタンを押してください
+（選択中の CMake プリセットでビルドしてから起動します）。
+
+ST-Link GDB Server・GDB・SVD は拡張が導入するバンドルから自動で解決されるため、
+CubeCLT のパス設定は不要です（旧版拡張の `STM32VSCodeExtension.cubeCLT.path` は使いません）。
 
 ![Visual Studio Code Debug](images/vscode_dbg.png)
 
