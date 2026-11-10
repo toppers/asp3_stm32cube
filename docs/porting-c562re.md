@@ -101,8 +101,15 @@ cube mx ide-project generate --port $PORT -p "$I" --format CMake \
 
 - **NVIC は設定しない**。ベクタテーブルはカーネル（`target_kernel.py` 生成）が
   持ち、割込みの許可・優先度は `CFG_INT`/`DEF_INH` が行う。
-- 再生成は既定 `--diff keep_user` なので、`CMakeLists.txt` の ASP3 追記ブロックと
-  `main.c` の `sta_ker()` は保持される。
+- ⚠️ **再生成でコミット済みの ASP3 改変が消える**。上記 `ide-project generate ... -f`
+  で既存プロジェクトに再生成すると、`CMakeLists.txt` 末尾の ASP3 統合ブロックと
+  `main.c` の `#include "kernel.h"`／`sta_ker()` が**削除される**（2026-11-10、
+  CubeMX2 1.1.1 で確認。`--diff keep_user` 相当の保持は効かなかった）。
+  生成物側の差分はこの削除だけなので、生成後に
+  `git checkout -- nucleo_c562re/sample1/CMakeLists.txt nucleo_c562re/sample1/main.c`
+  で戻せばよい（`git status` で確認してからビルドする）。
+- 待受ポートは複数ある（例：57587/57588/57589）。誤ったポートを指定すると
+  `Unexpected end of JSON input` で失敗するので、別のポートで再実行する。
 - 有用な調査コマンド：`cube mx pack-manager list-boards` / `list-devices`、
   `cube mx peripherals list -p <ioc2>`、
   `cube mx peripherals description --cpn STM32C562RET6 --peripheral TIM5`

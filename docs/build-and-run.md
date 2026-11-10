@@ -64,7 +64,7 @@ git clone --recursive https://github.com/toppers/asp3_stm32cube.git
 ```
 
 COM 番号はホスト・USB ポートごとに変わるので、**毎回 `-l` で確認する**のが確実。
-この PC での実績値は C562RE=COM27、N6570-DK=COM30。
+この PC での実績値は C562RE=COM27（別の USB ポートでは COM3）、N6570-DK=COM30。
 
 ### シリアルの読み方（Windows）
 
@@ -137,7 +137,12 @@ cube mx ide-project generate --port $PORT \
   --format CMake --source include-packs-from-local \
   --destination "$PWD/nucleo_c562re/sample1" \
   --build-target ".debug_GCC+NUCLEO-C562RE" -f
+
+# ★ 再生成で ASP3 改変（CMakeLists.txt 末尾ブロック・main.c の sta_ker()）が消えるので戻す
+git checkout -- nucleo_c562re/sample1/CMakeLists.txt nucleo_c562re/sample1/main.c
 ```
+
+> 待受ポートは複数ある。`Unexpected end of JSON input` が返ったら別のポートで再実行する。
 
 `.ioc2` から新規に作り直す場合の周辺設定（USART2 / TIM2 / TIM5）は
 [porting-c562re.md](porting-c562re.md) §3 に全コマンドがある。
