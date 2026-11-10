@@ -10,6 +10,21 @@
     },
     "tasks": [
         {
+            "type": "cmake",
+            "label": "CMake: build",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "preset": "${command:cmake.activeBuildPresetName}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "選択中の CMake プリセットでビルド（デバッグ起動前にも実行）"
+        },
+        {
             "type": "shell",
             "label": "CubeProg: Flash project (SWD)",
             "command": "STM32_Programmer_CLI",

@@ -12,8 +12,9 @@
             "cwd": "${workspaceFolder}",
             "deviceName": "STM32H563ZITx",
             "serverInterface": "SWD",
-            // CMake Tools のビルド（選択中のプリセット）を実行してから起動
-            "preBuild": "${command:cmake.build}",
+            // 起動前に CMake Tools でビルド（選択中のプリセット）。tasks.json の "CMake: build"
+            // ※ preBuild に ${command:cmake.build} は使えない（戻り値が文字列でないため展開エラー）
+            "preLaunchTask": "CMake: build",
             "runEntry": "main",
             "imagesAndSymbols": [
                 {
