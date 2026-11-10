@@ -10,7 +10,7 @@
 | ツール | 入手 | 備考 |
 |---|---|---|
 | arm-none-eabi-gcc / cmake / ninja | ディストリのパッケージ | 検証済み: gcc 13.2.1 |
-| STM32CubeMX | ST サイトから（zip 展開） | 検証済み: 6.17.0。例: `~/STM32CubeMX/STM32CubeMX` |
+| STM32CubeMX | ST サイトから（zip 展開） | 検証済み: 6.18.1。例: `~/STM32CubeMX/STM32CubeMX` |
 | STM32_Programmer_CLI | VS Code の STM32 拡張導入で bundles に入る（または CubeCLT/CubeProgrammer 単体） | **PATH に入らない**。実体例: `~/.local/share/stm32cube/bundles/programmer/<ver>/bin/STM32_Programmer_CLI` |
 | OpenOCD | ディストリのパッケージ | `stm32h5x.cfg` 同梱は不要（スキルの最小 cfg で動く） |
 | gdb-multiarch | ディストリのパッケージ | arm-none-eabi-gdb の代替 |
@@ -67,7 +67,7 @@ gdbserver を使わないなら更新は必須ではないが、揃えておく�
 新マシンの CubeMX は初回起動時に **User Preferences（データ収集同意）等の
 モーダルダイアログ**が出る。これがヘッドレス実行を確実にブロックするため、
 **初回は必ず GUI で起動して**同意 → `.ioc` を開いて GENERATE CODE まで一度通す。
-FW パック（FW_H5 V1.6.0 等）はこのとき自動 DL される（`~/STM32Cube/Repository/`）。
+FW パック（FW_H5 V1.7.0 等）はこのとき自動 DL される（`~/STM32Cube/Repository/`）。
 
 SSH 越しに作業していてローカルのデスクトップセッションがある場合、
 そのデスクトップ上に GUI を出せる:

@@ -16,6 +16,13 @@ NUCLEO-H533RE / NUCLEO-H563ZI の実機検証スナップショット。
 環境：CubeMX 6.17.0 + FW_H5 V1.6.0／arm-none-eabi-gcc 13.2.1／
 STM32CubeProgrammer 2.22.0／ST-LINK FW V3J17M10。
 
+2026-11-10：CubeMX 6.18.1 + FW_H5 V1.7.0 で再生成し、両ボードのビルド、
+H533RE 実機での sample1（バナー・`task1 is running` の周期出力）を確認
+（arm-none-eabi-gcc 13.3.1／STM32CubeProgrammer 2.19.0／ST-LINK FW V3J18M12）。
+同日、H563ZI 実機でも sample1（バナー・周期出力・`r` による task1→2→3 切替）を確認
+（CubeCLT 1.22.0 の gcc／STM32CubeProgrammer／ST-LINK FW V3J17M11）。
+上表の test_porting・testexec は未再実行。
+
 ### testexec の非PASS 内訳（両ボード共通・すべて既知）
 
 | テスト | 判定 | 理由 |

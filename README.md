@@ -59,7 +59,7 @@ git clone --recursive https://github.com/toppers/asp3_stm32cube.git
 ### 1. STM32CubeMX でコード生成
 
 下記の URL から STM32CubeMX をダウンロードし、インストールします
-（動作確認済み: 6.17.0 + FW_H5 V1.6.0。バージョンは現行版に合わせる方針）。
+（動作確認済み: 6.18.1 + FW_H5 V1.7.0。バージョンは現行版に合わせる方針）。
 
 <https://www.st.com/ja/development-tools/stm32cubemx.html>
 

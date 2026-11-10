@@ -5,9 +5,9 @@
 
 ## GUI で生成する（確実な方法）
 
-1. STM32CubeMX（動作確認済み: 6.17.0）を起動し `nucleo_*/*.ioc` を開く
+1. STM32CubeMX（動作確認済み: 6.18.1）を起動し `nucleo_*/*.ioc` を開く
 2. 旧バージョン .ioc なら移行ダイアログ → **Migrate**（常に現行版に合わせる方針）
-3. FW パッケージ（例: FW_H5 V1.6.0）未導入なら Download 確認 → 許可（自動 DL）
+3. FW パッケージ（例: FW_H5 V1.7.0）未導入なら Download 確認 → 許可（自動 DL）
 4. **GENERATE CODE** → `Core/ Drivers/ cmake/ *.ld CMakePresets.json` が復元される
 
 `Core/Src/main.c` 等の **USER CODE BEGIN/END 間は再生成でも保持される**

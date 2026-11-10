@@ -119,7 +119,8 @@ cat /dev/ttyACM0
 ## 参考
 
 - 経緯・root cause 解析の正本: `asp3/asp3_core/docs/dev/stm32-integration.md`
-- 動作確認済み: NUCLEO-H563ZI / NUCLEO-H533RE、CubeMX 6.17.0 + FW_H5 V1.6.0、
-  arm-none-eabi-gcc 13.2.1、STM32CubeProgrammer 2.22.0
+- 動作確認済み: NUCLEO-H563ZI / NUCLEO-H533RE、CubeMX 6.18.1 + FW_H5 V1.7.0、
+  arm-none-eabi-gcc 13.3.1（CubeCLT 1.18.0）、STM32CubeProgrammer 2.19.0
+  （両ボードとも実機で sample1 確認。test_porting/testexec は 6.17.0 + V1.6.0 時の結果）
 - 同型の移植スキル: [asp3_fsp](https://github.com/toppers/asp3_fsp)（Renesas RA / FSP）、
   asp3_pico_sdk（Raspberry Pi Pico）
