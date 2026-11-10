@@ -2,5 +2,8 @@
     "files.associations": {
         "*.trb": "ruby",
         "*.h": "c"
-    }
+    },
+    // 常に CMakePresets.json（CubeMX 生成）で構成する。CubeMX 生成前にフォルダを開くと
+    // キット構成（ツールチェーン無し）に固定され、生成後もプリセットに切り替わらないため。
+    "cmake.useCMakePresets": "always"
 }
