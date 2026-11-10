@@ -1,0 +1,12 @@
+{
+  "bundles": [
+    {
+      "name": "programmer",
+      "version": "2.23.0"
+    },
+    {
+      "name": "stlink-gdbserver",
+      "version": "7.14.0+st.2"
+    }
+  ]
+}

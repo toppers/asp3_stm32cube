@@ -1,5 +1,21 @@
 cmake_minimum_required(VERSION 3.22)
 
+# CubeMX 生成物（cmake/・Drivers/・CMakePresets.json 等）が無いまま構成すると、
+# ツールチェーンファイル無しのホスト向けビルドとして構成され、arm-none-eabi の
+# リンカに --major-image-version 等が渡されて分かりにくいエラーになる。
+# project() より前に検出して原因を明示する。
+if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/cmake/stm32cubemx/CMakeLists.txt)
+    message(FATAL_ERROR
+        "CubeMX の生成物がありません。H563ZI.ioc を STM32CubeMX で開いて "
+        "GENERATE CODE してから、CMake プリセット（Debug/Release）で構成してください。")
+endif()
+if(NOT CMAKE_TOOLCHAIN_FILE)
+    message(FATAL_ERROR
+        "CMAKE_TOOLCHAIN_FILE が未指定です。CMakePresets.json のプリセット"
+        "（cmake --preset Debug、または VS Code でプリセット Debug）で構成してください。"
+        "古い build/ が残っている場合は削除してください。")
+endif()
+
 #
 # This file is generated only once,
 # and is not re-generated if converter is called multiple times.
